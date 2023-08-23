@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+:root{
+    --bg: #051622;
+    --clr: #fff;
+    --clr2: #E1F2F7;
+    --padding: 0 75px;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--clr2);
+    user-select: none;
+}
+/* Header */
+header{
+    height: 80px;
+    background-color: var(--bg);
+    color: var(--clr);
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 800;
+}
+header .logo span{
+    background-color: var(--clr);
+    padding: 0 8px;
+    color: var(--bg);
+    border-radius: 8px;
+}
+.timer-box.hide{
+    display: none;
+}
+.timer.orange{
+    color: orange;
+}
+.timer.red{
+    color: red;
+}
+
+/* Utils */
+button{
+    background-color: var(--bg);
+    color: var(--clr);
+    border: 1px solid var(--bg);
+    padding: 6px 10px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+button[disabled]{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+button:not(button[disabled]):hover{
+    transform: translate(1px, 1px);
+    box-shadow: none;
+}
+.btn2{
+    background-color: transparent;
+    color: var(--bg);
+    border: 1px solid var(--bg);
+}
+
+/* Main */
+.page{
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.page.hide{
+    display: none;
+}
+.page-left{
+    width: 80%;
+    height: 100%;
+    position: relative;
+    transition: width 0.2s ease-in-out;
+}
+.page-left.full{
+    width: 100%;
+}
+.page-right{
+    padding: 0 20px;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    background-color: var(--clr);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 10px solid var(--clr2);
+    overflow: hidden;
+    transition: width 0.2s ease-in-out;
+}
+.page-right.zero{
+    width: 0;
+}
+.page-content{
+    height: 88%;
+    background-color: var(--clr);
+    padding: var(--padding);
+    overflow-y: auto;
+}
+.page-content h3, .page-right h3{
+    padding-top: 30px;
+    padding-bottom: 15px;
+    font-size: 1rem;
+}
+.page-content ul{
+    line-height: 2.2rem;
+    padding-left: 20px;
+}
+.buttons, ._buttons{
+    display: flex;
+    align-items: center;
+    height: 12%;
+    padding: var(--padding);
+}
+.page-button, ._page-button{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.page-button.two{
+    justify-content: space-between;
+}
+.page-button.one{
+    justify-content: flex-start;
+}
+
+
+/* Questions */
+.page-content #questions{
+    margin-top: 20px;
+}
+.question-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--clr2);
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+}
+
+.question-body{
+    margin-top: 15px;
+}
+.question-body .ques{
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+.radio{
+    display: none;
+}
+label{
+    display: block;
+    padding: 6px 10px;
+    margin: 6px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+label:hover{
+    background-color: rgb(231, 231, 231);
+}
+
+.radio:checked  + label{
+    border: 1px solid var(--bg);
+    background-color: var(--clr2);
+}
+.ques-numbers{
+    display: flex;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+.question-number{
+    margin: 4px 8px;
+    border: 2px solid var(--bg);
+    height: 25px;
+    width: 25px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.question-number.attempted{
+  background-color: green;
+  border: 2px solid green;
+  color: var(--clr);
+}
+.question-number.active{
+    background-color: var(--bg);
+    color: var(--clr);
+}
+
+
+
+.block{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff85;
+    inset: 0;
+    z-index: 9;
+    display: none;
+  
+  }
+  .block.yes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-msg{
+    width: 500px;
+    background-color: var(--bg);
+    color: var(--clr);
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  }
+  .user-msg p:first-child{
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+
+
+  .page-bottom button{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .toggle-right-page{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+  }
+  .toggle-right-page i{
+    font-size: 1.4rem;
+  }
+
+
+  #coding-page .page-content{
+    height: 88%;
+    width: 100%;
+  }
+  #coding-page h3{
+    text-align: center;
+    font-size: 1.6rem;
+  }
+  #coding-page ._buttons{
+    width: 100%;
+  }
+
+
+  /* Responsiveness */
+  @media (max-width:900px) {
+    header, .buttons{
+        padding: 0 50px;
+    }
+    .page-left{
+        width: 70%;
+        padding: 0 50px;
+    }
+    .page-right{
+        width: 30%;
+    }
+    .toggle-right-page{
+        right: 50px;
+    }
+  }
+  @media (max-width:700px) {
+    .page-content, .buttons{
+        padding: 0 50px;
+    }
+    .question-header{
+        flex-direction: column;
+        font-size: 0.8rem;
+        align-items: flex-start;
+    }
+    .question-body .ques{
+        font-size: 1.1rem;
+    }
+    .page-right{
+        border-left: 7px solid var(--clr2);
+    }
+  }
+  @media (max-width:550px) {
+    .page-content, .buttons{
+        padding: 0 40px;
+    }
+    .page-left, header{
+        padding: 0 30px;
+    }
+    header .logo{
+        font-size: 1rem;
+    }
+    .timer{
+        font-size: 0.8rem;
+    }
+    .question-body .ques{
+        font-size: 1rem;
+    }
+    label{
+        font-size: 0.9rem;
+    }
+    .toggle-right-page{
+        right: 30px;
+    }
+    .page-right{
+        border-left: 4px solid var(--clr2);
+    }
+  }

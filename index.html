@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Test</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body oncontextmenu="return false;">
+    <header>
+        <div class="logo">Machine <span>Test</span></div>
+        <div class="timer-box hide">Time Left: <span class="timer">20:00</span></div>
+    </header>
+    <main>
+        <div class="block">
+            <div class="user-msg">
+                <p><i id="user-msg-icon" class="fa" aria-hidden="true"></i> <span id="user-msg-heading"></span></p>
+                <p id="user-msg-content"></p>
+            </div>
+        </div>
+        <div class="page" id="instruction-page">
+            <div class="page-left">
+                <div class="page-content">
+                    <h3>Read the instructions carefully</h3>
+                    <ul>
+                        <li>There are 50 multiple-choice questions, and each question has four options.</li>
+                        <li>There will be a timer in the header. As soon as you run out of time, the test will be
+                            automatically saved.</li>
+                        <li>You can't move to the next question without attempting the current one.</li>
+                        <li>You can move to previous questions and can also update your answers.</li>
+                        <li>The test will be in fullscreen mode.</li>
+                        <li>The test will be reset in the following cases:
+                            <ul>
+                                <li>If you try to exit fullscreen mode.</li>
+                                <li>If you try to navigate away from the test.</li>
+                                <li>If you try to inspect the page.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="_buttons">
+                    <div class="_page-button">
+                        <button id="start-test">I'm ready to begin</button>
+                    </div>
+                </div>
+            </div>
+            <div class="page-right">
+                <h3>Welcome to <span class="title">Machine Test</span></h3>
+            </div>
+        </div>
+        <div class="page hide" id="question-page">
+            <div class="page-left">
+                <div class="toggle-right-page">
+                    <i class="fa-solid fa-circle-chevron-right" id="toggle-page"></i>
+                </div>
+                <div class="page-content">
+                    <div id="questions">
+
+                    </div>
+                </div>
+                <div class="buttons">
+
+                </div>
+            </div>
+            <div class="page-right">
+                
+                <div class="page-top">
+                    <h3>Welcome to <span class="title">Machine Test</span></h3>
+
+                    <p>Question numbers</p>
+                    <div class="ques-numbers"></div>
+                </div>
+                <div class="page-bottom">
+                    <button id="submitTest">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="page hide" id="coding-page">
+            <div class="page-content">
+                <h3>Coding Task</h3>
+                <ul>
+                    <li>Create an form in php to register a user with its email, name, mobile number and then a login form to login the autheticate user.</li>
+                    <li>Create a table to show the users from a table and show pagination without reloading the page.</li>
+                </ul>
+            </div>
+            <div class="_buttons">
+               <div class="_page-button">
+                <button id="submitCoding">Submit</button>
+               </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
